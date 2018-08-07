@@ -1,0 +1,52 @@
+INNER JOIN REDUCE SIDE
+3000 score, 30 000 000 student:
+	Ukko: 2 datanode:
+		time: 1min 05s
+		size: 4
+
+3 000 000 score, 30 000 000 student:
+	Ukko: 2 datanode:
+		time: 1min 05s
+		size: 2689
+
+30 0000 000 score, 30 000 000 student:
+	Ukko: 2 datanode:
+		time: 1min 42s
+		size: 39019
+
+
+REDUCE JOIN MAPPER SIDE WITH DISTRIBUTED CACHE
+3000 score, 30 000 000 student:
+	Ukko: 2 datanode:
+		time: 24s
+		size: 4
+
+3 000 000 score, 30 000 000 student:
+	Ukko: 2 datanode:
+		time: NULL
+		size: NULL score file is too big for Distributed cache
+
+30 000 000 score, 30 000 000 student:
+	Ukko: 2 datanode:
+		time: null
+		size: null score file is too big for Distributed cache
+
+JOIN WITH BLOOM FILTER
+3 000 score, 30 000 000 student:
+	Ukko: 2 datanode:
+		time: 0min 22s
+		size: 4
+
+
+3 000 000 score, 30 000 000 student:
+	Ukko: 2 datanode:
+		time: 27s
+		size: 2689
+		timeForBloom: 3s (included in total time above)
+
+30 000 000 score, 30 000 000 student:
+	Ukko: 2 datanode:
+		time: 57s
+		size: 39019
+		timeForBloom: 20s (included in total time above)
+
